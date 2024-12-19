@@ -1,8 +1,9 @@
 package projeto_final_bloco_01;
 
 import java.util.ArrayList;
+import repository.Repository;
 
-public class Biblioteca {
+public class Biblioteca implements Repository {
 	private ArrayList<Livro> livros;
 
 	public Biblioteca() {
@@ -20,7 +21,7 @@ public class Biblioteca {
 				return livro;
 			}
 		}
-		return null; 
+		return null;
 	}
 
 	public boolean atualizarLivro(String tituloAntigo, String novoTitulo, String novoAutor) {
@@ -54,5 +55,35 @@ public class Biblioteca {
 				System.out.println(livro);
 			}
 		}
+	}
+
+	@Override
+	public void adicionar(String adcionar) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buscar(String titulo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(String tituloAntigo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletar(String titulo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void listar() {
+		// TODO Auto-generated method stub
+		
 	}
 }
