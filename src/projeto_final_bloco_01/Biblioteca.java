@@ -58,32 +58,65 @@ public class Biblioteca implements Repository {
 	}
 
 	@Override
-	public void adicionar(String adcionar) {
-		// TODO Auto-generated method stub
-		
+	public void adicionar(Livro livro) {
+		livros.add(livro);
+		System.out.println("Livro adicionado com sucesso!");
 	}
 
 	@Override
-	public void buscar(String titulo) {
-		// TODO Auto-generated method stub
-		
+	public Livro buscar(String titulo) {
+		for (Livro livro : livros) {
+			if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+				return livro; // Retorna o livro encontrado
+			}
+		}
+		return null;
 	}
 
-	@Override
-	public void atualizar(String tituloAntigo) {
-		// TODO Auto-generated method stub
-		
+	public void atualizar(String tituloAntigo, Livro novoLivro) {
+		Livro livroExistente = buscar(tituloAntigo);
+		if (livroExistente != null) {
+			livroExistente.setTitulo(novoLivro.getTitulo());
+			livroExistente.setAutor(novoLivro.getAutor());
+			System.out.println("Livro atualizado com sucesso!");
+		} else {
+			System.out.println("Livro não encontrado.");
+		}
 	}
 
 	@Override
 	public void deletar(String titulo) {
-		// TODO Auto-generated method stub
-		
+		Livro livro = buscar(titulo);
+		if (livro != null) {
+			livros.remove(livro);
+			System.out.println("Livro deletado com sucesso!");
+		} else {
+			System.out.println("Livro não encontrado.");
+		}
 	}
 
 	@Override
 	public void listar() {
-		// TODO Auto-generated method stub
+		if (livros.isEmpty()) {
+			System.out.println("Nenhum livro na biblioteca.");
+		} else {
+			for (Livro livro : livros) {
+				System.out.println(livro);
+			}
+		}
+	}
+
+	@Override
+	public void adicionar(String adicionar) {
+
+		Livro livro = new Livro(adicionar, "Autor Desconhecido");
+		livros.add(livro);
+		System.out.println("Livro adicionado: " + livro);
+	}
+
+	@Override
+	public void atualizar(String tituloAntigo) {
+		
 		
 	}
 }

@@ -22,4 +22,16 @@ public class Livro {
 		return "Título: " + titulo + ", Autor: " + autor;
 	}
 
+	public void setAutor(String autor2) {
+	
+		
+	}
+
+	public void setTitulo(String titulo2) {
+	
+		
+	}
+	
 }
+
+	
